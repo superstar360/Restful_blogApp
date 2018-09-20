@@ -6,10 +6,11 @@ var bodyParser       = require("body-parser"),
     app              = express();
 
 // APP CONFIG
-mongoose.connect("mongodb://localhost:27017/restful_bolg_app", { useNewUrlParser: true });
+// require('dotenv').config();
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
+app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 
