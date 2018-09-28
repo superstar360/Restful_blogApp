@@ -16,6 +16,7 @@ app.use(methodOverride("_method"));
 
 
 
+
 // MONGOOSE/MODEL CONFIG
 var blogSchema = new mongoose.Schema({
     title: String,
